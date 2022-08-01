@@ -23,12 +23,12 @@ class MyCircularQueue:
         return False
 
     def get_front(self) -> int:
-        if self.is_queue_empty():
+        if self.is_empty():
             return self.queue[self.front]
         return -1
 
     def get_rear(self):
-        if self.is_queue_empty():
+        if self.is_empty():
             return self.queue[self.rear]
         return -1
 
