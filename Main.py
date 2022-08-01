@@ -5,19 +5,21 @@ class MyCircularQueue:
         self.front, self.rear = -1, -1
 
     def enqueue(self, value: int) -> bool:
-        if self.front == -1:
-            self.front, self.rear = 0, 0
-        elif not self.is_full():
-            self.rear = (self.rear - 1) % self.size
+        if not self.is_full():
+            if self.front == -1:
+                self.front, self.rear = 0, 0
+            else:
+                self.rear = (self.rear - 1) % self.size
             self.queue[self.rear] = value
             return True
         return False
 
     def dequeue(self) -> bool:
-        if self.front == self.rear:
-            self.front, self.rear = -1, -1
-        elif not self.is_empty():
-            self.front = (self.front + 1) % self.size
+        if not self.is_empty(): 
+            if self.front == self.rear:
+                self.front, self.rear = -1, -1
+            else:
+                self.front = (self.front + 1) % self.size
             return True
         return False
 
